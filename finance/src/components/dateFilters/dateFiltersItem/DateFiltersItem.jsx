@@ -1,4 +1,6 @@
-const DateFiltersItem = ({filterText}) => {
+import './DateFiltersItem.css'
+
+const DateFiltersItem = ({ filterText }) => {
   
   return (
     <div className="dateFiltersItem__wrapper">

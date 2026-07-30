@@ -1,0 +1,11 @@
+.mainPage__wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mainPage__header{
+  display: flex;
+  justify-content: space-between;
+}
+

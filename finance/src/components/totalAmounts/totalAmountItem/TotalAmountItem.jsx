@@ -1,4 +1,6 @@
-const TotalAmountItem = ({amountTitle, amount}) => {
+import './TotalAmountItem.css'
+
+const TotalAmountItem = ({ amountTitle, amount }) => {
 
   return (
 		<div className="totalAmountItem__wrapper">

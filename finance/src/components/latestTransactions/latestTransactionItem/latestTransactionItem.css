@@ -1,0 +1,15 @@
+.latestTransactionItem__wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.latestTransactionItem__descriptions{
+  display: flex;
+  flex-direction: column;
+}
+
+.latestTransactionItem__category-date{
+  display: flex;
+  gap: 5px
+}

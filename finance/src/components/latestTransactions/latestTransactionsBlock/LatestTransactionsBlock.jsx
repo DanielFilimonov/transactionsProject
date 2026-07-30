@@ -1,4 +1,5 @@
-import LatestTransactionItem from "./latestTransactionItem";
+import LatestTransactionItem from "../latestTransactionItem/LatestTransactionItem";
+import "./latestTransactionsBlock.css";
 
 const LatestTransactionsBlock = () => {
 	return (

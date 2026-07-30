@@ -1,9 +1,11 @@
-import TotalAmountCategoryItem from "./TotalAmountCategoryItem"
+import TotalAmountCategoryItem from "../totalAmountCategoryItem/TotalAmountCategoryItem";
+
+import "./totalAmountsCategoriesBlock.css";
 
 const TotalAmountsCategoriesBlock = () => {
 
   return (
-		<div className="TotalAmountsCategoriesBlock__ wrapper">
+		<div className="totalAmountsCategoriesBlock__wrapper">
 			<p className="TotalAmountsCategoriesBlock__title">Расходы по категориям</p>
 			<TotalAmountCategoryItem
 				categotyTitle={"еда"}

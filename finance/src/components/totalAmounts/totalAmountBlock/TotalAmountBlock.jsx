@@ -1,4 +1,7 @@
-import TotalAmountItem from "./totalAmountItem"
+
+
+import TotalAmountItem from "../TotalAmountItem/TotalAmountItem";
+import "./totalAmountBlock.css";
 
 const TotalAmountBlock = () => {
 
