@@ -1,6 +1,6 @@
 import DateFiltersItem from "../DateFiltersItem/DateFiltersItem";
 
-import "./DateFiltersBlock.css";
+import "./dateFiltersBlock.css";
 
 const DateFiltersBlock = () => {
 	return (

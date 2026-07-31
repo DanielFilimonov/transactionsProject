@@ -1,4 +1,4 @@
-import './TotalAmountItem.css'
+import './totalAmountItem.css'
 
 const TotalAmountItem = ({ amountTitle, amount }) => {
 

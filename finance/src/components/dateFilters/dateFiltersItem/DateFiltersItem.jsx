@@ -1,4 +1,4 @@
-import './DateFiltersItem.css'
+import './dateFiltersItem.css'
 
 const DateFiltersItem = ({ filterText }) => {
   

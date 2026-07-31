@@ -2,5 +2,18 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+}
+
+.totalAmountCategoryItem__title{
+  text-align: start;
+}
+
+.totalAmountCategoryItem__count-bar{
+   text-align: center;
+}
+
+.totalAmountCategoryItem__amount{
+   text-align: end;
 }
