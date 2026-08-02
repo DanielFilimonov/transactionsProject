@@ -5,7 +5,7 @@ import "./totalAmountsCategoriesBlock.css";
 const TotalAmountsCategoriesBlock = () => {
 
   return (
-		<div className="totalAmountsCategoriesBlock__wrapper">
+		<div className="totalAmountsCategoriesBlock__6wrapper">
 			<p className="TotalAmountsCategoriesBlock__title">Расходы по категориям</p>
 			<TotalAmountCategoryItem
 				categotyTitle={"еда"}
