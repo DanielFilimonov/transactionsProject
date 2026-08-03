@@ -10,7 +10,7 @@ const fakeInitialState: Transaction[] = [
 		type: "expense",
 		category: "Еда",
 		title: "Продукты",
-		date: "2026-07-25",
+		date: new Date().toISOString(),
 	},
 	{
 		id: "2",
@@ -18,7 +18,7 @@ const fakeInitialState: Transaction[] = [
 		type: "income",
 		category: "Зарплата",
 		title: "доход",
-		date: "2026-07-20",
+		date: new Date().toISOString(),
 	},
 	{
 		id: "3",
@@ -26,7 +26,7 @@ const fakeInitialState: Transaction[] = [
 		type: "expense",
 		category: "Развлечения",
 		title: "Кино",
-		date: "2026-07-18",
+		date: new Date().toISOString(),
 	},
 	{
 		id: "4",
@@ -34,7 +34,7 @@ const fakeInitialState: Transaction[] = [
 		type: "expense",
 		category: "Транспорт",
 		title: "Такси",
-		date: "2026-07-15",
+		date: new Date().toISOString(),
 	},
 ];
 

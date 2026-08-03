@@ -6,3 +6,15 @@ export interface Transaction {
 	date: string;
 	title?: string;
 }
+
+export type PeriodType = 'month' | 'halfyear' | 'year'
+
+export interface DateFilterState {
+	period: PeriodType
+}
+
+export interface dateFiltersItemProps {
+	filterText: string;
+	isActive: boolean;
+	onClick: () => void
+}

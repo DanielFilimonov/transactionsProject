@@ -10,6 +10,7 @@ const LatestTransactionsBlock = () => {
 		const transiction = transactionsEntities[id]
 		return (
 			<LatestTransactionItem
+				key={id}
 				transactionTitle={transiction.title}
 				transactionCategory={transiction.category}
 				transactionDate={transiction.date}
@@ -17,8 +18,6 @@ const LatestTransactionsBlock = () => {
 			/>
 		);
 	})
-
-	console.log(transactionsId);
 
 	return (
 		<div className="latestTransactionsBlock__wrapper">
