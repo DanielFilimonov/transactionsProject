@@ -1,4 +1,4 @@
-import { createEntityAdapter, createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
 import { Transaction } from "../tsTypes";
 
 const transactionsAdapter = createEntityAdapter<Transaction>();
@@ -11,6 +11,22 @@ const fakeInitialState: Transaction[] = [
 		category: "Еда",
 		title: "Продукты",
 		date: new Date().toISOString(),
+	},
+	{
+		id: nanoid(),
+		amount: 500,
+		type: "expense",
+		category: "Еда",
+		title: "Продукты",
+		date: "2026-01-05T11:27:18.429Z",
+	},
+	{
+		id: nanoid(),
+		amount: 1000,
+		type: "income",
+		category: "подработка",
+		title: "доход",
+		date: "2026-02-05T11:27:18.429Z",
 	},
 	{
 		id: "2",

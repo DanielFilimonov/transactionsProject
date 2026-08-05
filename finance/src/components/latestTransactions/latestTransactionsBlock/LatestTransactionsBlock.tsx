@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../../app/hooks";
+import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import LatestTransactionItem from "../latestTransactionItem/LatestTransactionItem";
 import "./latestTransactionsBlock.css";
 
@@ -14,7 +15,7 @@ const LatestTransactionsBlock = () => {
 				transactionTitle={transiction.title}
 				transactionCategory={transiction.category}
 				transactionDate={transiction.date}
-				transactionAmount={`${transiction.amount} руб`}
+				transactionAmount={amountFormat(transiction.amount)}
 			/>
 		);
 	})
