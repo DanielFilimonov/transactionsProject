@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import { RootState } from "../../store/store";
 import { getDateCalculate } from "../../features/transactions/utils/dateUtils";
+import { Transaction } from "../../features/tsTypes";
 
 const selectTransactionsIds = (state: RootState) => state.transactions.ids;
 
@@ -9,6 +10,20 @@ const selectTransactionsEntities = (state: RootState) =>
 	state.transactions.entities;
 
 const selectPeriod = (state: RootState) => state.filters.period;
+
+interface IStatsResult {
+	incomeAmountSum: number;
+	expenseAmountSum: number;
+	balanceAmount: number;
+	incomeAmountTransactions: Transaction[];
+	expenseAmountTransactions: Transaction[];
+	expensesByCategory: Record<string, number>;
+}
+
+interface ICategoryTotal {
+	category: string;
+	amount: number;
+}
 
 export const getFiltredTransactions = createSelector(
 	[selectTransactionsIds, selectTransactionsEntities, selectPeriod],
@@ -21,31 +36,47 @@ export const getFiltredTransactions = createSelector(
 				(transaction) =>
 					transaction && new Date(transaction.date) >= currentDate,
 			);
-			
 	},
 );
 
-
-
-export const getIncome = createSelector(
+export const getStats = createSelector(
 	[getFiltredTransactions],
-	(transactions) => {
-		return transactions
-			.filter((transaction) => transaction.type === "income")
-			.reduce((sum, transaction) => sum + transaction.amount, 0);
+	(transactions): IStatsResult => {
+		return transactions.reduce<IStatsResult>(
+			(result, transaction) => {
+				if (transaction.type === "income") {
+					result.incomeAmountTransactions.push(transaction);
+					result.incomeAmountSum += transaction.amount;
+				} else if (transaction.type === "expense") {
+					result.expenseAmountTransactions.push(transaction);
+					result.expenseAmountSum += transaction.amount;
+					result.expensesByCategory[transaction.category] =
+						(result.expensesByCategory[transaction.category] ?? 0) +
+						transaction.amount;
+				}
+
+				result.balanceAmount =
+					result.incomeAmountSum - result.expenseAmountSum;
+
+				return result;
+			},
+			{
+				incomeAmountSum: 0,
+				expenseAmountSum: 0,
+				balanceAmount: 0,
+				incomeAmountTransactions: [],
+				expenseAmountTransactions: [],
+				expensesByCategory: {},
+			},
+		);
 	},
 );
 
-export const getExpence = createSelector(
-	[getFiltredTransactions],
-	(transactions) => {
-		return transactions
-			.filter((transaction) => transaction.type === "expense")
-			.reduce((sum, transaction) => sum + transaction.amount, 0);
+export const getExpensesCategoriesToArr = createSelector(
+	[getStats],
+	(stats): ICategoryTotal[] => {
+		return Object.entries(stats.expensesByCategory)
+			.map(([category, amount]) => ({ category, amount }))
+			.sort((a, b) => b.amount - a.amount);
 	},
-);
-
-export const getBalance = createSelector(
-	[getIncome, getExpence],
-	(income, expence) => income - expence,
 );

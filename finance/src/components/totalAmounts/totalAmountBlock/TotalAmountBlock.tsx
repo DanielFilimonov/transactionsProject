@@ -1,27 +1,25 @@
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
-import { getBalance, getExpence, getIncome } from "../statsSelectors";
+import { getStats } from "../statsSelectors";
 import TotalAmountItem from "../TotalAmountItem/TotalAmountItem";
 import "./totalAmountBlock.css";
 
 const TotalAmountBlock = () => {
-	const balance = useAppSelector(getBalance);
-	const income = useAppSelector(getIncome);
-	const expence = useAppSelector(getExpence);
+	const stats = useAppSelector(getStats);
 
 	return (
 		<div className="totalAmountBlock__wrapper">
 			<TotalAmountItem
 				amountTitle={"Баланс за период "}
-				amount={amountFormat(balance)}
+				amount={amountFormat(stats.balanceAmount)}
 			/>
 			<TotalAmountItem
 				amountTitle={"Доходы "}
-				amount={amountFormat(income)}
+				amount={amountFormat(stats.incomeAmountSum)}
 			/>
 			<TotalAmountItem
 				amountTitle={"расходы "}
-				amount={amountFormat(expence)}
+				amount={amountFormat(stats.expenseAmountSum)}
 			/>
 		</div>
 	);

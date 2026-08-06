@@ -1,7 +1,7 @@
 export interface Transaction {
 	id: string;
 	amount: number;
-	type: string;
+	type: 'expense' | 'income';
 	category: string;
 	date: string;
 	title?: string;
