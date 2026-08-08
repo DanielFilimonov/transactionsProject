@@ -1,15 +1,30 @@
-.latestTransactionItem__wrapper{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.latestTransactionItem__wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 0;
 }
 
-.latestTransactionItem__descriptions{
-  display: flex;
-  flex-direction: column;
+.latestTransactionItem__wrapper:not(:first-child) {
+	border-top: 1px solid #ececec;
 }
 
-.latestTransactionItem__category-date{
-  display: flex;
-  gap: 5px
+.latestTransactionItem__descriptions {
+	display: flex;
+	flex-direction: column;
+  gap: 3px;
+}
+
+.latestTransactionItem__category-date {
+	display: flex;
+	color: #6b6b6b;
+  font-size: 14px;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
 }

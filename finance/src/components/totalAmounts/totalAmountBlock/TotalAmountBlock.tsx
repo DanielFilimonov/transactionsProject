@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import { getStats } from "../statsSelectors";
-import TotalAmountItem from "../TotalAmountItem/TotalAmountItem";
+import TotalAmountItem from "../totalAmountItem/TotalAmountItem";
 import "./totalAmountBlock.css";
 
 const TotalAmountBlock = () => {
@@ -16,10 +16,12 @@ const TotalAmountBlock = () => {
 			<TotalAmountItem
 				amountTitle={"Доходы "}
 				amount={amountFormat(stats.incomeAmountSum)}
+				className={'green'}
 			/>
 			<TotalAmountItem
-				amountTitle={"расходы "}
+				amountTitle={"Расходы "}
 				amount={amountFormat(stats.expenseAmountSum)}
+				className={'red'}
 			/>
 		</div>
 	);

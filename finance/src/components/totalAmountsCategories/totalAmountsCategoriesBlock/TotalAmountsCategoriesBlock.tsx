@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../../app/hooks";
+import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import { getExpensesCategoriesToArr } from "../../totalAmounts/statsSelectors";
 import TotalAmountCategoryItem from "../totalAmountCategoryItem/TotalAmountCategoryItem";
 
@@ -13,17 +14,19 @@ const TotalAmountsCategoriesBlock = () => {
 			<TotalAmountCategoryItem
 				key={category.category}
 				categoryCategory={category.category}
-				categoryAmount={category.amount}
+				categoryAmount={amountFormat(category.amount)}
 			/>
 		);
 	})
 
   return (
-		<div className="totalAmountsCategoriesBlock__6wrapper">
-			<p className="TotalAmountsCategoriesBlock__title">
+		<div className="totalAmountsCategoriesBlock__wrapper">
+			<p className="totalAmountsCategoriesBlock__title">
 				Расходы по категориям
 			</p>
-			{categoryRender}
+			<p className="totalAmountsCategoriesBlock__category-wrapper">
+				{categoryRender}
+			</p>
 		</div>
   );
 }

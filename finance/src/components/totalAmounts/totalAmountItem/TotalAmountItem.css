@@ -1,9 +1,27 @@
 .totalAmountItem__wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
+	align-items: flex-start;
 	background-color: white;
 	border-radius: 5px;
-	padding: 20px;
+	padding: 16px 20px;
+	gap: 6px;
+	flex: 1;
+}
+
+.totalAmountItem__amount{
+	font-size: 26px;
+	font-weight: 500;
+}
+
+.totalAmountItem__title{
+	 color: #6b6b6b;
+}
+
+.red{ 
+	color: red;
+}
+
+.green{
+	color: green;
 }

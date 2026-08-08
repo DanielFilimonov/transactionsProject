@@ -1,7 +1,7 @@
 import AddTransactionBtn from "../addTransactionBtn/AddTransactionBtn";
 import DateFiltersBlock from "../dateFilters/dateFiltersBlock/DateFiltersBlock";
 import LatestTransactionsBlock from "../latestTransactions/latestTransactionsBlock/LatestTransactionsBlock";
-import TotalAmountBlock from "../totalAmounts/TotalAmountBlock/TotalAmountBlock";
+import TotalAmountBlock from "../totalAmounts/totalAmountBlock/TotalAmountBlock";
 import TotalAmountsCategoriesBlock from "../totalAmountsCategories/totalAmountsCategoriesBlock/TotalAmountsCategoriesBlock";
 
 
