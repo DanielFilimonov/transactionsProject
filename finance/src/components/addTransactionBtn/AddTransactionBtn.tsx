@@ -1,7 +1,11 @@
 import "./addTransactionBtn.css";
 
-const AddTransactionBtn = () => {
-	return <button className="addTransactionBtn">+ Добавить транзакцию</button>;
+interface IAddTransactionBtnProps {
+	onClick: () => void;
+}
+
+const AddTransactionBtn = ({ onClick }: IAddTransactionBtnProps) => {
+	return <button className="addTransactionBtn" onClick={onClick}>+ Добавить транзакцию</button>;
 };
 
 export default AddTransactionBtn;

@@ -1,0 +1,58 @@
+.transactionsForm {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	min-width: 320px;
+}
+
+.transactionsForm__field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.transactionsForm__field label {
+	font-size: 13px;
+	color: #6b6b6b;
+	font-weight: 500;
+}
+
+.transactionsForm__field input,
+.transactionsForm__field select {
+	height: 40px;
+	padding: 0 12px;
+	border: 1px solid #dcdcdc;
+	border-radius: 8px;
+	font-size: 15px;
+	outline: none;
+	transition: border-color 0.15s;
+	background-color: white;
+}
+
+.transactionsForm__field input:focus,
+.transactionsForm__field select:focus {
+	border-color: #378adb;
+}
+
+.transactionsForm__error {
+	font-size: 12px;
+	color: #d64545;
+	margin: 0;
+}
+
+.transactionsForm__submit {
+	height: 44px;
+	background-color: #1a1a1a;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	margin-top: 8px;
+	transition: background-color 0.15s;
+}
+
+.transactionsForm__submit:hover {
+	background-color: #333;
+}
