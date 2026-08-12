@@ -14,6 +14,20 @@
    text-align: center;
 }
 
+.totalAmountCategoryItem__track {
+	flex: 1;
+	height: 8px;
+	background-color: #ececec;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.totalAmountCategoryItem__fill {
+	height: 100%;
+	background-color: #378adb;
+	border-radius: 4px;
+}
+
 .totalAmountCategoryItem__amount{
    text-align: end;
    font-size: 16px;

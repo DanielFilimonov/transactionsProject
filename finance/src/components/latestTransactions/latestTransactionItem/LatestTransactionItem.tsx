@@ -1,3 +1,4 @@
+import { getCategoryIcon } from "../../../features/transactions/categoryIcons";
 import "./latestTransactionItem.css";
 
 const LatestTransactionItem = ({
@@ -23,14 +24,21 @@ const LatestTransactionItem = ({
 		}
 	};
 
+	const Icon = getCategoryIcon(transactionCategory);
+
 	return (
 		<div className="latestTransactionItem__wrapper">
-			<div className="latestTransactionItem__descriptions">
-				<p className="latestTransactionItem__transactionTitle">
-					{transactionTitle}
-				</p>
-				<div className="latestTransactionItem__category-date">
-					{transactionCategory} · {transactionDate}
+			<div className="latestTransactionItem__left">
+				<div className="latestTransactionItem__icon">
+					<Icon size={18} stroke={1.5} />
+				</div>
+				<div className="latestTransactionItem__descriptions">
+					<p className="latestTransactionItem__transactionTitle">
+						{transactionTitle}
+					</p>
+					<div className="latestTransactionItem__category-date">
+						{transactionCategory} · {transactionDate}
+					</div>
 				</div>
 			</div>
 

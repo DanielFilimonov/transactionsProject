@@ -46,7 +46,7 @@ const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 			transactionsAdded({
 				id: nanoid(),
 				amount: Number(data.amount),
-				type: data.type as "income" | "expense",
+				type: data.type,
 				title: data.title,
 				category: data.category,
 				date: new Date().toISOString(),
