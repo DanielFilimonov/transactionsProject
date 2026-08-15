@@ -4,13 +4,9 @@ import "./modalForm.css";
 
 interface TransactionModalProps {
 	onClose: () => void;
-	onTransactionSuccess: () => void;
 }
 
-const ModalForm = ({
-	onClose,
-	onTransactionSuccess,
-}: TransactionModalProps) => {
+const ModalForm = ({ onClose }: TransactionModalProps) => {
 	useEffect(() => {
 		document.body.style.overflow = "hidden";
 
@@ -54,7 +50,7 @@ const ModalForm = ({
 				>
 					×
 				</button>
-				<TransactionsForm onSuccess={onTransactionSuccess} />
+				<TransactionsForm onSuccess={onClose} />
 			</div>
 		</div>
 	);

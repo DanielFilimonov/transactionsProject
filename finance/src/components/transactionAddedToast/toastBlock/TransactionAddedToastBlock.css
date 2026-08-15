@@ -1,0 +1,9 @@
+.toastContainer__wrapper {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 10px;
+	z-index: 2000;
+}

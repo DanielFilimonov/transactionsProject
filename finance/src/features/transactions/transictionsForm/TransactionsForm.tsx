@@ -11,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import './transictionsForm.css'
 import { INCOME_CATEGORY } from "./incomeCategories";
 import { EXPENSE_CATEGORIES } from "./expenseCategories";
+import { toastAdded } from "../../../components/transactionAddedToast/toastSlice";
 
 interface TransactionsFormProps {
 	onSuccess?: () => void;
@@ -50,6 +51,12 @@ const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 				title: data.title,
 				category: data.category,
 				date: new Date().toISOString(),
+			}),
+		);
+		dispatch(
+			toastAdded({
+				id: nanoid(),
+				message: "Транзакция успешно добавлена",
 			}),
 		);
 		reset();

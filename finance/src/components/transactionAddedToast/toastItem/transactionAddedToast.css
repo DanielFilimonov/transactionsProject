@@ -1,7 +1,4 @@
 .toast__wrapper {
-	position: fixed;
-	bottom: 24px;
-	right: 24px;
 	display: flex;
 	align-items: center;
 	gap: 12px;
@@ -10,7 +7,6 @@
 	padding: 14px 20px;
 	border-radius: 8px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	z-index: 2000;
 	animation: toast-slide-in 0.25s ease-out;
 }
 
