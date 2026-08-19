@@ -1,3 +1,4 @@
+import { useGetTransactionsQuery } from "../../../api/apiTransactionsSlice";
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import { dateFormat } from "../../../features/transactions/utils/dateFormat";
@@ -5,6 +6,11 @@ import LatestTransactionItem from "../latestTransactionItem/LatestTransactionIte
 import "./latestTransactionsBlock.css";
 
 const LatestTransactionsBlock = () => {
+
+	const { data: transactions } = useGetTransactionsQuery('')
+	
+	console.log( transactions)
+
 	const transactionsId = useAppSelector((state) => state.transactions.ids);
 	const transactionsEntities = useAppSelector((state) => state.transactions.entities);
 
