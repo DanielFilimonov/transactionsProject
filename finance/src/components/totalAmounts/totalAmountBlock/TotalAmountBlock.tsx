@@ -1,3 +1,4 @@
+import { useGetStatsQuery } from "../../../api/apiSlice";
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import { getStats } from "../statsSelectors";
@@ -5,8 +6,15 @@ import TotalAmountItem from "../totalAmountItem/TotalAmountItem";
 import "./totalAmountBlock.css";
 
 const TotalAmountBlock = () => {
-	const stats = useAppSelector(getStats);
 
+	const period = useAppSelector(state => state.filters.period)
+
+	const {data: stats, isLoading} = useGetStatsQuery(period)
+
+	if (isLoading) {
+		return <p>Данные загружаются...</p>
+	}
+	
 	return (
 		<div className="totalAmountBlock__wrapper">
 			<TotalAmountItem

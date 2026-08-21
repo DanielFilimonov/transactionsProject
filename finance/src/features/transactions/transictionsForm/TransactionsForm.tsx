@@ -1,5 +1,4 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { transactionsAdded } from "../transactionsSlice";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "../../../app/hooks";
 import {
@@ -8,10 +7,11 @@ import {
 } from "./formValidation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import './transictionsForm.css'
+import "./transictionsForm.css";
 import { INCOME_CATEGORY } from "./incomeCategories";
 import { EXPENSE_CATEGORIES } from "./expenseCategories";
 import { toastAdded } from "../../../components/transactionAddedToast/toastSlice";
+import { useAddTransactionMutation } from "../../../api/apiSlice";
 
 interface TransactionsFormProps {
 	onSuccess?: () => void;
@@ -19,6 +19,8 @@ interface TransactionsFormProps {
 
 const TransactionsForm = ({ onSuccess }: TransactionsFormProps) => {
 	const dispatch = useAppDispatch();
+
+	const [addTransaction, { isLoading }] = useAddTransactionMutation();
 
 	const {
 		register,
@@ -31,36 +33,44 @@ const TransactionsForm = ({ onSuccess }: TransactionsFormProps) => {
 		resolver: yupResolver(transactionSchema),
 	});
 
-const selectedType = watch("type");
+	const selectedType = watch("type");
 
-const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-	const value = e.target.value;
-	if (value === "income") {
-		setValue("category", INCOME_CATEGORY);
-	} else {
-		setValue("category", "");
-	}
-};
+	const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		const value = e.target.value;
+		if (value === "income") {
+			setValue("category", INCOME_CATEGORY);
+		} else {
+			setValue("category", "");
+		}
+	};
 
-	const onSubmit = (data: TransactionFormValues) => {
-		dispatch(
-			transactionsAdded({
-				id: nanoid(),
+	const onSubmit = async (data: TransactionFormValues) => {
+		try {
+			await addTransaction({
 				amount: Number(data.amount),
 				type: data.type,
 				title: data.title,
 				category: data.category,
 				date: new Date().toISOString(),
-			}),
-		);
-		dispatch(
-			toastAdded({
-				id: nanoid(),
-				message: "Транзакция успешно добавлена",
-			}),
-		);
-		reset();
-		onSuccess?.();
+			}).unwrap();
+
+			dispatch(
+				toastAdded({
+					id: nanoid(),
+					message: "Транзакция успешно добавлена",
+				}),
+			);
+			reset();
+			onSuccess?.();
+		} catch (err) {
+			console.error("Не удалось добавить транзакцию:", err);
+			dispatch(
+				toastAdded({
+					id: nanoid(),
+					message: "Ошибка при добавлении транзакции",
+				}),
+			);
+		}
 	};
 
 	return (
@@ -121,8 +131,12 @@ const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 				</div>
 			)}
 
-			<button type="submit" className="transactionsForm__submit">
-				Добавить транзакцию
+			<button
+				type="submit"
+				className="transactionsForm__submit"
+				disabled={isLoading}
+			>
+				{isLoading ? "Добавление..." : "Добавить транзакцию"}
 			</button>
 		</form>
 	);
