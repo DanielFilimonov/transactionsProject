@@ -16,8 +16,11 @@ export const apiTransactionsSlice = createApi({
 	tagTypes: ["Transactions", 'Stats'],
 	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4000/api" }),
 	endpoints: (builder) => ({
-		getTransactions: builder.query<Transaction[], void>({
-			query: () => "/transactions",
+		getTransactions: builder.query<Transaction[], PeriodType>({
+			query: (period) => ({
+				url: "/transactions",
+				params: { period },
+			}),
 			providesTags: ["Transactions"],
 		}),
 		addTransaction: builder.mutation<Transaction, TNewTransaction>({

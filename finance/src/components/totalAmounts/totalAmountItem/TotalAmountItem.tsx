@@ -14,7 +14,9 @@ const TotalAmountItem = ({
 	return (
 		<div className="totalAmountItem__wrapper">
 			<p className="totalAmountItem__title">{amountTitle}</p>
-			<p className={`totalAmountItem__amount ${className}`}>{amount}</p>
+			<p className={["totalAmountItem__amount", className].filter(Boolean).join(" ")}>
+				{amount}
+			</p>
 		</div>
 	);
 };

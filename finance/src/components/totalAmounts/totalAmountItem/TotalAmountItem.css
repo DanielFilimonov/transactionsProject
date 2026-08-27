@@ -7,11 +7,14 @@
 	padding: 16px 20px;
 	gap: 6px;
 	flex: 1;
+	min-width: 0;
 }
 
 .totalAmountItem__amount{
 	font-size: 26px;
 	font-weight: 500;
+	overflow-wrap: break-word;
+	word-break: break-word;
 }
 
 .totalAmountItem__title{

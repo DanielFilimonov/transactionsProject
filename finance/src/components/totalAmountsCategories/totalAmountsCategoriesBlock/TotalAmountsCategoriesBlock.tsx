@@ -1,12 +1,18 @@
+import { useGetStatsQuery } from "../../../api/apiSlice";
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
-import { getExpensesCategoriesToArr } from "../../totalAmounts/statsSelectors";
+import QueryState from "../../queryState/QueryState";
 import TotalAmountCategoryItem from "../totalAmountCategoryItem/TotalAmountCategoryItem";
 
 import "./totalAmountsCategoriesBlock.css";
 
 const TotalAmountsCategoriesBlock = () => {
-	const categoryList = useAppSelector(getExpensesCategoriesToArr);
+	const period = useAppSelector((state) => state.filters.period);
+	const { data: stats, isLoading, isError, error } = useGetStatsQuery(period);
+
+	const categoryList = Object.entries(stats?.expensesByCategory ?? {})
+		.map(([category, amount]) => ({ category, amount }))
+		.sort((a, b) => b.amount - a.amount);
 
 	const totalExpenses = categoryList.reduce(
 		(sum, category) => sum + category.amount,
@@ -31,9 +37,11 @@ const TotalAmountsCategoriesBlock = () => {
 			<div className="totalAmountsCategoriesBlock__title">
 				Расходы по категориям
 			</div>
-			<div className="totalAmountsCategoriesBlock__category-wrapper">
-				{categoryRender}
-			</div>
+			<QueryState isLoading={isLoading} isError={isError} error={error}>
+				<div className="totalAmountsCategoriesBlock__category-wrapper">
+					{categoryRender}
+				</div>
+			</QueryState>
 		</div>
 	);
 };
