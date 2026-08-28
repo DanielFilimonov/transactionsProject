@@ -1,22 +1,22 @@
 import "./totalAmountItem.css";
 
+type TTransactionsType = "expense" | "income" | "balance";
+
 interface ITotalAmountItemProps {
 	amountTitle: string;
 	amount: string;
-	className?: string;
+	type: TTransactionsType;
 }
 
 const TotalAmountItem = ({
 	amountTitle,
 	amount,
-	className,
+	type,
 }: ITotalAmountItemProps) => {
 	return (
 		<div className="totalAmountItem__wrapper">
 			<p className="totalAmountItem__title">{amountTitle}</p>
-			<p className={["totalAmountItem__amount", className].filter(Boolean).join(" ")}>
-				{amount}
-			</p>
+			<p className={`totalAmountItem__amount ${type}`}>{amount}</p>
 		</div>
 	);
 };

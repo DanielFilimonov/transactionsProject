@@ -14,10 +14,7 @@ const TotalAmountsCategoriesBlock = () => {
 		.map(([category, amount]) => ({ category, amount }))
 		.sort((a, b) => b.amount - a.amount);
 
-	const totalExpenses = categoryList.reduce(
-		(sum, category) => sum + category.amount,
-		0,
-	);
+	const totalExpenses = stats?.expenseAmountSum
 
 	const categoryRender = categoryList.map((category) => {
 		const percentage =
