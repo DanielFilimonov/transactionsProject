@@ -1,13 +1,16 @@
 import { ReactNode } from "react";
 import { ApiError, getErrorMessage } from "../../api/apiError";
 
-interface IQueryStateProps {
+export interface IQueryState {
 	isLoading: boolean;
 	isError: boolean;
 	error?: ApiError;
 	loadingText?: string;
 	errorText?: string;
-	children: ReactNode;
+}
+
+interface IQueryStateProps extends IQueryState {
+	children?: ReactNode;
 }
 
 const QueryState = ({
@@ -26,7 +29,7 @@ const QueryState = ({
 		return <p>{errorText ?? getErrorMessage(error)}</p>;
 	}
 
-	return <>{children}</>;
+	return <>{children ?? null}</>;
 };
 
 export default QueryState;

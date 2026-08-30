@@ -1,3 +1,6 @@
+import { useGetStatsQuery } from "../../../api/apiSlice";
+import { useAppSelector } from "../../../app/hooks";
+import QueryState from "../../queryState/QueryState";
 import "./totalAmountItem.css";
 
 type TTransactionsType = "expense" | "income" | "balance";
@@ -13,10 +16,16 @@ const TotalAmountItem = ({
 	amount,
 	type,
 }: ITotalAmountItemProps) => {
+
+	const period = useAppSelector((state) => state.filters.period);
+	const { isLoading, isError, error } = useGetStatsQuery(period);
+
 	return (
 		<div className="totalAmountItem__wrapper">
-			<p className="totalAmountItem__title">{amountTitle}</p>
-			<p className={`totalAmountItem__amount ${type}`}>{amount}</p>
+			<QueryState isLoading={isLoading} isError={isError} error={error}>
+				<p className="totalAmountItem__title">{amountTitle}</p>
+				<p className={`totalAmountItem__amount ${type}`}>{amount}</p>
+			</QueryState>
 		</div>
 	);
 };
