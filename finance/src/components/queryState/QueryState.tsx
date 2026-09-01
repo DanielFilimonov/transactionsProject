@@ -7,6 +7,8 @@ export interface IQueryState {
 	error?: ApiError;
 	loadingText?: string;
 	errorText?: string;
+	isDataEmpty?: boolean;
+	dataEmpty?: string;
 }
 
 interface IQueryStateProps extends IQueryState {
@@ -19,6 +21,8 @@ const QueryState = ({
 	error,
 	loadingText = "Данные загружаются...",
 	errorText,
+	isDataEmpty,
+	dataEmpty = "Данных нет",
 	children,
 }: IQueryStateProps) => {
 	if (isLoading) {
@@ -29,6 +33,9 @@ const QueryState = ({
 		return <p>{errorText ?? getErrorMessage(error)}</p>;
 	}
 
+	if (isDataEmpty) {
+		return <p>{dataEmpty}</p>;
+	}
 	return <>{children ?? null}</>;
 };
 
