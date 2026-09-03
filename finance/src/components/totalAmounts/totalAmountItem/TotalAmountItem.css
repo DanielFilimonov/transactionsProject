@@ -4,21 +4,25 @@
 	align-items: flex-start;
 	background-color: white;
 	border-radius: 5px;
-	padding: 16px 20px;
+	padding: clamp(2px, 1.5vw, 16px) clamp(3px, 1.8vw, 20px);
 	gap: 6px;
 	flex: 1;
+	min-width: 0;
 }
 
 .totalAmountItem__amount{
-	font-size: 26px;
+	font-size: clamp(16px, 2vw, 26px);
 	font-weight: 500;
+	overflow-wrap: break-word;
+	word-break: break-word;
 }
 
 .totalAmountItem__title{
 	 color: #6b6b6b;
+	 font-size: clamp(12px, 1.5vw, 20px);
 }
 
-.red{ 
+.red{
 	color: red;
 }
 

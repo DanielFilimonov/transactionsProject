@@ -1,18 +1,36 @@
-# React + Vite
+# Finance Tracker — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Клиентская часть проекта [Finance Tracker](../README.md). React + TypeScript + Vite, состояние и работа с API — через Redux Toolkit / RTK Query.
 
-Currently, two official plugins are available:
+Общее описание проекта, стек, запуск и структура репозитория — в [README корня репозитория](../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Запуск
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Приложение поднимется на `http://localhost:5173` и обращается к API на `http://localhost:4000` (см. [`server/README.md`](../server/README.md) для запуска бэкенда).
 
-Note: This will impact Vite dev & build performances.
+## Структура
 
-## Expanding the ESLint configuration
+```
+src/
+├── api/          # RTK Query API-слайс и обработка ошибок запросов
+├── app/          # точка сборки App, типизированные хуки Redux
+├── components/   # UI-блоки страницы (по одному на каждый визуальный блок)
+│   └── common/   # переиспользуемые компоненты вне конкретного домена (QueryState)
+├── features/     # доменная логика: слайсы, форма транзакции, утилиты форматирования
+├── store/        # конфигурация Redux store
+└── types/        # общие TypeScript-типы приложения
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Скрипты
+
+| Команда | Что делает |
+|---|---|
+| `npm run dev` | Дев-сервер Vite |
+| `npm run build` | Продакшн-сборка |
+| `npm run lint` | Проверка ESLint |
+| `npm run preview` | Просмотр продакшн-сборки локально |

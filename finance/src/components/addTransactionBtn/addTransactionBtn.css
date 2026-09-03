@@ -1,5 +1,5 @@
 .addTransactionBtn{
   border: 1px solid grey;
   border-radius: 5px;
-  padding: 10px;
+  padding: clamp(2px, 1vw, 10px);
 }

@@ -1,20 +1,21 @@
-.totalAmountsCategoriesBlock__wrapper{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
+.totalAmountsCategoriesBlock__wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: white;
 	border-radius: 5px;
-	padding: 20px;
+	padding: clamp(10px, 2vw, 20px);
+	flex-shrink: 0;
 }
 
-.totalAmountsCategoriesBlock__title{
-  margin-bottom: 10px;
-  color: #6b6b6b;
+.totalAmountsCategoriesBlock__title {
+	margin-bottom: 10px;
+	color: #6b6b6b;
+	font-size: clamp(12px, 1.5vw, 20px);
 }
 
-
-.totalAmountsCategoriesBlock__category-wrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.totalAmountsCategoriesBlock__category-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }

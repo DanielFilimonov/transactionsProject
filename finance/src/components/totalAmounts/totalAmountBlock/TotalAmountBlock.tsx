@@ -10,16 +10,16 @@ const TotalAmountBlock = () => {
 	return (
 		<div className="totalAmountBlock__wrapper">
 			<TotalAmountItem
-				amountTitle={"Баланс за период "}
+				amountTitle={"Баланс"}
 				amount={amountFormat(stats.balanceAmount)}
 			/>
 			<TotalAmountItem
-				amountTitle={"Доходы "}
+				amountTitle={"Доходы"}
 				amount={amountFormat(stats.incomeAmountSum)}
 				className={'green'}
 			/>
 			<TotalAmountItem
-				amountTitle={"Расходы "}
+				amountTitle={"Расходы"}
 				amount={amountFormat(stats.expenseAmountSum)}
 				className={'red'}
 			/>

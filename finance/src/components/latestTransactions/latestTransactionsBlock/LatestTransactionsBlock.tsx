@@ -27,7 +27,9 @@ const LatestTransactionsBlock = () => {
 			<p className="latestTransactionsBlock__title">
 				Последние транзакции
 			</p>
-			{transactionItemRender}
+			<div className="latestTransactionsBlock__list">
+				{transactionItemRender}
+			</div>
 		</div>
 	);
 };
