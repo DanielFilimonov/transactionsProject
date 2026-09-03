@@ -2,8 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import transactionsReducer, {
 } from "../features/transactions/transactionsSlice";
-import filtersReducer from '../components/dateFilters/dateFiltersSlice'
-import toastsReducer from '../components/transactionAddedToast/toastSlice'
+import filtersReducer from '../features/dateFilters/dateFiltersSlice'
+import toastsReducer from '../features/toast/toastSlice'
 
 const store = configureStore({
 	reducer: {

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import TransactionsForm from "../../features/transactions/transictionsForm/TransactionsForm";
+import TransactionsForm from "../../features/transactions/transactionsForm/TransactionsForm";
 import "./modalForm.css";
 
 interface TransactionModalProps {

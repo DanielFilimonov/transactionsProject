@@ -1,4 +1,4 @@
-import MainPage from "../components/main-page/MainPage";
+import MainPage from "../components/mainPage/MainPage";
 
 const App = () => {
 	return (

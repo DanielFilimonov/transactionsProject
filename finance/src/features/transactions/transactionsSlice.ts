@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
-import { Transaction } from "../tsTypes";
+import { Transaction } from "../../types/tsTypes";
 
 const transactionsAdapter = createEntityAdapter<Transaction>();
 

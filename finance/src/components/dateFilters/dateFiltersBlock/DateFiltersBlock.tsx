@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import DateFiltersItem from "../dateFiltersItem/DateFiltersItem";
-import { periodChanged } from "../dateFiltersSlice";
+import { periodChanged } from "../../../features/dateFilters/dateFiltersSlice";
 
 import "./dateFiltersBlock.css";
 

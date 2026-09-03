@@ -1,6 +1,6 @@
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
-import { getStats } from "../statsSelectors";
+import { getStats } from "../../../features/transactions/statsSelectors";
 import TotalAmountItem from "../totalAmountItem/TotalAmountItem";
 import "./totalAmountBlock.css";
 

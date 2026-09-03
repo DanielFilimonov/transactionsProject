@@ -1,8 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
 
 import { RootState } from "../../store/store";
-import { getDateCalculate } from "../../features/transactions/utils/dateUtils";
-import { Transaction } from "../../features/tsTypes";
+import { getDateCalculate } from "./utils/dateUtils";
+import { Transaction } from "../../types/tsTypes";
 
 const selectTransactionsIds = (state: RootState) => state.transactions.ids;
 

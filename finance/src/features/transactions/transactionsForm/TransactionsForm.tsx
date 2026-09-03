@@ -8,10 +8,10 @@ import {
 } from "./formValidation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import './transictionsForm.css'
+import './transactionsForm.css'
 import { INCOME_CATEGORY } from "./incomeCategories";
 import { EXPENSE_CATEGORIES } from "./expenseCategories";
-import { toastAdded } from "../../../components/transactionAddedToast/toastSlice";
+import { toastAdded } from "../../toast/toastSlice";
 
 interface TransactionsFormProps {
 	onSuccess?: () => void;
