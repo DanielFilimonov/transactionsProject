@@ -29,19 +29,19 @@ const isDataEmpty =
 	return (
 		<div className="totalAmountBlock__wrapper">
 			<TotalAmountItem
-				amountTitle={"Баланс за период "}
+				amountTitle={"Баланс"}
 				amount={amountFormat(stats?.balanceAmount)}
 				type={"balance"}
 				status={status}
 			/>
 			<TotalAmountItem
-				amountTitle={"Доходы "}
+				amountTitle={"Доходы"}
 				amount={amountFormat(stats?.incomeAmountSum)}
 				type={"income"}
 				status={status}
 			/>
 			<TotalAmountItem
-				amountTitle={"Расходы "}
+				amountTitle={"Расходы"}
 				amount={amountFormat(stats?.expenseAmountSum)}
 				type={"expense"}
 				status={status}

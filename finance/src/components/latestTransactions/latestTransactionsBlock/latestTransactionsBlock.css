@@ -1,9 +1,22 @@
-.latestTransactionsBlock__wrapper{
-  display: flex;
-  flex-direction: column;
-  /* gap: 10px; */
-  background-color: white;
+.latestTransactionsBlock__wrapper {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	background-color: white;
 	border-radius: 5px;
 	padding: 20px;
-  
+	min-height: 0;
+}
+
+.latestTransactionsBlock__list {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+}
+
+
+.latestTransactionsBlock__title {
+  flex-shrink: 0;
+	font-size: clamp(14px, 1.5vw, 20px);
+
 }

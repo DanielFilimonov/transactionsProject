@@ -1,5 +1,5 @@
 .dateFiltersBlock__wrapper {
   display: flex; 
-  gap: 20px;
+  gap: clamp(5px, 3vw, 20px);
 
 }

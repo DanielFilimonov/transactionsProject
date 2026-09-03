@@ -1,16 +1,16 @@
 .mainPage__wrapper {
-  background-color: #f5f5f7;
-  padding: 100px 300px;
+	background-color: #f5f5f7;
+	padding: clamp(20px, 7vw, 100px) clamp(10px, 7vw, 300px);
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(20px, 3vw, 40px);
 }
 
-.mainPage__wrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.mainPage__header {
+	display: flex;
+	justify-content: space-between;
+	font-size: clamp(12px, 1.5vw, 18px);
+	flex-shrink: 0;
 }
-
-.mainPage__header{
-  display: flex;
-  justify-content: space-between;
-}
-

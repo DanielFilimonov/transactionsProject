@@ -1,5 +1,6 @@
 .totalAmountBlock__wrapper {
 	display: flex;
-	gap: 12px;
+	gap: clamp(6px, 1vw, 12px);
 	justify-content: space-around;
+	flex-shrink: 0;
 }

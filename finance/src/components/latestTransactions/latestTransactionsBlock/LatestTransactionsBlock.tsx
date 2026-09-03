@@ -21,18 +21,24 @@ const LatestTransactionsBlock = () => {
 			<div className="latestTransactionsBlock__title">
 				Последние транзакции
 			</div>
-			<QueryState isLoading={isLoading} isError={isError} error={error}>
-				{transactions?.map((transaction) => (
-					<LatestTransactionItem
-						key={transaction.id}
-						transactionTitle={transaction.title}
-						transactionCategory={transaction.category}
-						transactionDate={dateFormat(transaction.date)}
-						transactionAmount={amountFormat(transaction.amount)}
-						transactionType={transaction.type}
-					/>
-				))}
-			</QueryState>
+			<div className="latestTransactionsBlock__list">
+				<QueryState
+					isLoading={isLoading}
+					isError={isError}
+					error={error}
+				>
+					{transactions?.map((transaction) => (
+						<LatestTransactionItem
+							key={transaction.id}
+							transactionTitle={transaction.title}
+							transactionCategory={transaction.category}
+							transactionDate={dateFormat(transaction.date)}
+							transactionAmount={amountFormat(transaction.amount)}
+							transactionType={transaction.type}
+						/>
+					))}
+				</QueryState>
+			</div>
 		</div>
 	);
 };
