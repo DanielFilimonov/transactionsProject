@@ -1,4 +1,4 @@
-import { PeriodType } from "../../tsTypes";
+import { PeriodType } from "../../../types/tsTypes";
 
 export const getDateCalculate = (period: PeriodType) => {
 	const ourDate = new Date();

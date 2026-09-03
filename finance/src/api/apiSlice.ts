@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { PeriodType, Transaction } from "../features/tsTypes";
+import { PeriodType, Transaction } from "../types/tsTypes";
+
 
 type TNewTransaction = Omit<Transaction, 'id'>
 

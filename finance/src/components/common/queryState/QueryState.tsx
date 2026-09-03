@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ApiError, getErrorMessage } from "../../api/apiError";
+import { ApiError, getErrorMessage } from "../../../api/apiError";
 
 export interface IQueryState {
 	isLoading: boolean;

@@ -2,7 +2,7 @@ import { useGetTransactionsQuery } from "../../../api/apiSlice";
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
 import { dateFormat } from "../../../features/transactions/utils/dateFormat";
-import QueryState from "../../queryState/QueryState";
+import QueryState from "../../common/queryState/QueryState";
 import LatestTransactionItem from "../latestTransactionItem/LatestTransactionItem";
 import "./latestTransactionsBlock.css";
 

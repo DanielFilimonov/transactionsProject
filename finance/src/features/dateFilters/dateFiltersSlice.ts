@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { DateFilterState, PeriodType } from "../../features/tsTypes";
+import { DateFilterState, PeriodType } from "../../types/tsTypes";
 
 const initialState: DateFilterState = {
 	period: "month",

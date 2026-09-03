@@ -1,9 +1,11 @@
 .toastContainer__wrapper {
 	position: fixed;
-	bottom: 24px;
-	right: 24px;
+	bottom: clamp(12px, 4vw, 24px);
+	right: clamp(12px, 4vw, 24px);
+	left: clamp(12px, 4vw, 24px);
 	display: flex;
 	flex-direction: column-reverse;
+	align-items: flex-end;
 	gap: 10px;
 	z-index: 2000;
 }

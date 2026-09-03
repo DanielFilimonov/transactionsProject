@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./transactionAddedToast.css";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { toastRemoved } from "../toastSlice";
+import { toastRemoved } from "../../../features/toast/toastSlice";
 
 interface ToastProps {
 	id: string;

@@ -1,4 +1,4 @@
-import QueryState, { IQueryState } from "../../queryState/QueryState";
+import QueryState, { IQueryState } from "../../common/queryState/QueryState";
 import "./totalAmountItem.css";
 
 type TTransactionsType = "expense" | "income" | "balance";

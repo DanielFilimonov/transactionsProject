@@ -1,7 +1,7 @@
 import { useGetStatsQuery } from "../../../api/apiSlice";
 import { useAppSelector } from "../../../app/hooks";
 import { amountFormat } from "../../../features/transactions/utils/amountFormat";
-import { IQueryState } from "../../queryState/QueryState";
+import { IQueryState } from "../../common/queryState/QueryState";
 import TotalAmountItem from "../totalAmountItem/TotalAmountItem";
 import "./totalAmountBlock.css";
 

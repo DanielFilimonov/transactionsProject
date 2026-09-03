@@ -1,4 +1,4 @@
-import { dateFiltersItemProps } from "../../../features/tsTypes";
+import { dateFiltersItemProps } from "../../../types/tsTypes";
 import "./dateFiltersItem.css";
 
 const DateFiltersItem = ({

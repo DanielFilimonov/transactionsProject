@@ -2,7 +2,7 @@ import {
 	createEntityAdapter,
 	createSlice,
 } from "@reduxjs/toolkit";
-import { ToastNotification } from "../../features/tsTypes";
+import { ToastNotification } from "../../types/tsTypes";
 
 
 const toastsAdapter = createEntityAdapter<ToastNotification>();
