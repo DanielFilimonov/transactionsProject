@@ -5,11 +5,35 @@ const transactionsAdapter = createEntityAdapter<Transaction>();
 
 const fakeInitialState: Transaction[] = [
 	{
-		id: "1",
+		id: nanoid(),
 		amount: 500,
 		type: "expense",
 		category: "Еда",
 		title: "Продукты",
+		date: new Date().toISOString(),
+	},
+	{
+		id: nanoid(),
+		amount: 120000,
+		type: "income",
+		category: "Зарплата",
+		title: "доход",
+		date: new Date().toISOString(),
+	},
+	{
+		id: nanoid(),
+		amount: 1200,
+		type: "expense",
+		category: "Развлечения",
+		title: "Кино",
+		date: new Date().toISOString(),
+	},
+	{
+		id: nanoid(),
+		amount: 3400,
+		type: "expense",
+		category: "Транспорт",
+		title: "Такси",
 		date: new Date().toISOString(),
 	},
 	{
@@ -27,30 +51,6 @@ const fakeInitialState: Transaction[] = [
 		category: "подработка",
 		title: "доход",
 		date: "2026-02-05T11:27:18.429Z",
-	},
-	{
-		id: "2",
-		amount: 120000,
-		type: "income",
-		category: "Зарплата",
-		title: "доход",
-		date: new Date().toISOString(),
-	},
-	{
-		id: "3",
-		amount: 1200,
-		type: "expense",
-		category: "Развлечения",
-		title: "Кино",
-		date: new Date().toISOString(),
-	},
-	{
-		id: "4",
-		amount: 3400,
-		type: "expense",
-		category: "Транспорт",
-		title: "Такси",
-		date: new Date().toISOString(),
 	},
 ];
 
