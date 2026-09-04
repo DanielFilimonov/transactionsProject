@@ -20,19 +20,16 @@
 
 ## Стек
 
-**Фронтенд** (`finance/`):
 - React 19 + TypeScript, Vite
 - Redux Toolkit + RTK Query (запросы к API, кеширование, инвалидация тегов)
 - React Hook Form + Yup (валидация формы)
 - ESLint
 
-**Бэкенд** (`server/`):
-- Node.js + Express + TypeScript
-- Prisma ORM + SQLite
-- Zod (валидация входных данных)
-- CORS
 
-## Быстрый старт
+## **Запуск демо**
+> Перейти по ссылке: 
+
+## Локальный запуск
 
 ```bash
 # 1. Бэкенд
