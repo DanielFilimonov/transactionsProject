@@ -1,36 +1,53 @@
-# Finance Tracker — Frontend
+# Finance — фронтенд
 
-Клиентская часть проекта [Finance Tracker](../README.md). React + TypeScript + Vite, состояние и работа с API — через Redux Toolkit / RTK Query.
+Фронтенд приложения для учёта личных финансов. В этой ветке (`main`) работает полностью на клиентском состоянии, без обращений к серверу — все транзакции и статистика хранятся и считаются в Redux-сторе.
 
-Общее описание проекта, стек, запуск и структура репозитория — в [README корня репозитория](../README.md).
+## Стек
+
+- React 19 + TypeScript, Vite
+- Redux Toolkit (`createEntityAdapter`, `createSelector`) — хранение транзакций и вычисление статистики на клиенте
+- React Hook Form + Yup — форма добавления транзакции и её валидация
+- ESLint
+
+## Функционал
+
+- Добавление транзакции (доход/расход) через модальную форму; для расходов дополнительно выбирается категория.
+- Список последних транзакций (`LatestTransactionsBlock`) с датой, категорией и суммой.
+- Сводка по балансу/доходам/расходам (`TotalAmountBlock`) — считается селектором `getStats` из `statsSelectors.ts`.
+- Расходы по категориям с процентом от общей суммы расходов (`TotalAmountsCategoriesBlock`, `getExpensesCategoriesToArr`).
+- Фильтр периода — месяц/полгода/год (`DateFiltersBlock`, `dateFiltersSlice`) — общий стейт, по которому фильтруются транзакции (`getFiltredTransactions`).
+- Toast-уведомления об успехе/ошибке добавления транзакции (`toastSlice`).
+
+Серверная версия того же фронтенда (данные и статистика приходят по REST API через RTK Query) — в ветке `backend`.
 
 ## Запуск
 
 ```bash
+cd finance
 npm install
-npm run dev
+npm run dev       # http://localhost:5173
+npm run build     # продакшн-сборка
+npm run lint
 ```
-
-Приложение поднимется на `http://localhost:5173` и обращается к API на `http://localhost:4000` (см. [`server/README.md`](../server/README.md) для запуска бэкенда).
 
 ## Структура
 
 ```
 src/
-├── api/          # RTK Query API-слайс и обработка ошибок запросов
-├── app/          # точка сборки App, типизированные хуки Redux
-├── components/   # UI-блоки страницы (по одному на каждый визуальный блок)
-│   └── common/   # переиспользуемые компоненты вне конкретного домена (QueryState)
-├── features/     # доменная логика: слайсы, форма транзакции, утилиты форматирования
-├── store/        # конфигурация Redux store
-└── types/        # общие TypeScript-типы приложения
+  app/
+    App.tsx
+    hooks.ts             # типизированные useAppDispatch/useAppSelector
+  components/            # презентационные компоненты (UI-блоки главной страницы)
+  features/
+    transactions/
+      transactionsSlice.ts   # entity-адаптер, начальные тестовые данные, add/update/delete
+      statsSelectors.ts       # вычисление баланса, сумм и расходов по категориям из стора
+      transactionsForm/       # форма добавления транзакции, валидация, категории
+      utils/                  # форматирование дат/сумм, расчёт периода фильтра
+    dateFilters/          # dateFiltersSlice — период фильтрации (month/halfyear/year)
+    toast/                # toastSlice — очередь toast-уведомлений
+  store/
+    store.ts             # конфигурация Redux store
+  types/
+    tsTypes.ts           # общие типы (Transaction, PeriodType и т.д.)
 ```
-
-## Скрипты
-
-| Команда | Что делает |
-|---|---|
-| `npm run dev` | Дев-сервер Vite |
-| `npm run build` | Продакшн-сборка |
-| `npm run lint` | Проверка ESLint |
-| `npm run preview` | Просмотр продакшн-сборки локально |
