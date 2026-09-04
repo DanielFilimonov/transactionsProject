@@ -1,11 +1,36 @@
 # Finance Tracker
 
-Приложение для учёта личных финансов: фронтенд на React + бэкенд на Express/Prisma.
+Веб-приложение для учёта личных финансов: добавление доходов/расходов, статистика по балансу и расходам по категориям, фильтрация по периоду.
 
-## Структура репозитория
+Состоит из двух частей:
 
-- [`finance/`](finance/README.md) — фронтенд (Vite + React + Redux Toolkit + RTK Query).
-- [`server/`](server/README.md) — бэкенд (Express + Prisma + SQLite), REST API для транзакций и статистики.
+- [`finance/`](finance/README.md) — фронтенд (React + Redux Toolkit Query).
+- [`server/`](server/README.md) — бэкенд (Express + Prisma), REST API для транзакций и статистики.
+
+## Функционал
+
+- Добавление транзакции (доход/расход) через модальную форму с валидацией (react-hook-form + yup).
+- Список последних транзакций с категорией, датой и суммой.
+- Сводка по балансу, доходам и расходам.
+- Расходы по категориям с процентным соотношением от общей суммы расходов.
+- Фильтр по периоду: месяц / полгода / год — влияет сразу на все блоки со статистикой и списком транзакций.
+- Уведомления (toast) об успешном/неуспешном добавлении транзакции.
+- Отображение состояний загрузки/ошибки/пустых данных для каждого блока, завязанного на API.
+- Адаптивная вёрстка.
+
+## Стек
+
+**Фронтенд** (`finance/`):
+- React 19 + TypeScript, Vite
+- Redux Toolkit + RTK Query (запросы к API, кеширование, инвалидация тегов)
+- React Hook Form + Yup (валидация формы)
+- ESLint
+
+**Бэкенд** (`server/`):
+- Node.js + Express + TypeScript
+- Prisma ORM + SQLite
+- Zod (валидация входных данных)
+- CORS
 
 ## Быстрый старт
 
@@ -23,4 +48,4 @@ npm install
 npm run dev              # http://localhost:5173
 ```
 
-Подробный контракт API — в [`server/README.md`](server/README.md), детали фронтенда — в [`finance/README.md`](finance/README.md).
+Контракт API — в [`server/README.md`](server/README.md), детали фронтенда — в [`finance/README.md`](finance/README.md).

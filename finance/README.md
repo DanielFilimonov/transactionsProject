@@ -1,18 +1,53 @@
-# React + Vite
+# Finance — фронтенд
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Фронтенд приложения для учёта личных финансов. Работает поверх REST API из [`../server`](../server/README.md).
 
-Currently, two official plugins are available:
+## Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript, Vite
+- Redux Toolkit + RTK Query — запросы к API, кеширование, инвалидация тегов при изменении данных
+- React Hook Form + Yup — форма добавления транзакции и её валидация
+- ESLint
 
-## React Compiler
+## Функционал
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Добавление транзакции (доход/расход) через модальную форму; для расходов дополнительно выбирается категория.
+- Список последних транзакций (`LatestTransactionsBlock`) с датой, категорией и суммой.
+- Сводка по балансу/доходам/расходам (`TotalAmountBlock`) — считается на сервере (`GET /api/stats`).
+- Расходы по категориям с процентом от общей суммы расходов (`TotalAmountsCategoriesBlock`).
+- Фильтр периода — месяц/полгода/год (`DateFiltersBlock`, `dateFiltersSlice`) — общий стейт, влияющий на все запросы к API.
+- Toast-уведомления об успехе/ошибке добавления транзакции (`toastSlice`).
+- Единообразная обработка состояний loading/error/empty для блоков, зависящих от API — компонент `QueryState`.
 
-Note: This will impact Vite dev & build performances.
+## Запуск
 
-## Expanding the ESLint configuration
+Перед запуском фронтенда должен быть поднят бэкенд (см. [`../server/README.md`](../server/README.md), по умолчанию `http://localhost:4000`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cd finance
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # продакшн-сборка
+npm run lint
+```
+
+## Структура
+
+```
+src/
+  api/
+    apiSlice.ts          # RTK Query: getTransactions, addTransaction, getStats
+    apiError.ts          # разбор ошибок ответа API
+  app/
+    App.tsx
+    hooks.ts             # типизированные useAppDispatch/useAppSelector
+  components/            # презентационные компоненты (UI-блоки главной страницы)
+  features/
+    transactions/        # форма добавления транзакции, валидация, категории, утилиты форматирования
+    dateFilters/          # dateFiltersSlice — период фильтрации (month/halfyear/year)
+    toast/                # toastSlice — очередь toast-уведомлений
+  store/
+    store.ts             # конфигурация Redux store
+  types/
+    tsTypes.ts           # общие типы (Transaction, PeriodType и т.д.)
+```
