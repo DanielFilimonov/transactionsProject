@@ -7,7 +7,8 @@
 - **`main`** — данные хранятся и обрабатываются полностью на клиенте: транзакции лежат в Redux-сторе (`transactionsSlice`), статистика считается селекторами (`statsSelectors.ts`). Без сервера.
 - **`backend`** — тот же фронтенд, переведённый на работу с REST API через RTK Query (`api/apiSlice.ts`): транзакции и статистика приходят с сервера, а не считаются локально. Бэкенд (`server/`, Express + Prisma) написан не мной — я адаптировал фронтенд под уже готовый контракт API, как если бы это делала отдельная бэкенд-команда.
 
-- [`finance/`](finance/README.md) — фронтенд (React + Redux Toolkit).
+## **Запуск демо**
+> Перейти по ссылке: https://tracking-financer.netlify.app/
 
 ## Функционал
 
@@ -26,7 +27,8 @@
 - React Hook Form + Yup (валидация формы)
 - ESLint
 
-## Быстрый старт
+
+## Локальный запуск
 
 ```bash
 cd finance
@@ -35,3 +37,6 @@ npm run dev              # http://localhost:5173
 ```
 
 Подробности — в [`finance/README.md`](finance/README.md).
+
+## Демонстрация работы приложения
+![Изображение](./finance/src/assets/financeTracker.gif "Изображение приложения")
