@@ -1,5 +1,5 @@
 import { dateFiltersItemProps } from "../../../types/tsTypes";
-import "./dateFiltersItem.css";
+import "./DateFiltersItem.css";
 
 const DateFiltersItem = ({
 	filterText,

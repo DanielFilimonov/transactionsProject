@@ -1,4 +1,4 @@
-import "./totalAmountItem.css";
+import "./TotalAmountItem.css";
 
 interface ITotalAmountItemProps {
 	amountTitle: string;
